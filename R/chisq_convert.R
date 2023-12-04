@@ -4,7 +4,7 @@
 # was significant, X2 (2, N = 170) = 14.14, p <.01
 # here I am assuming that "170" is the number of observations
 # i am not positive of that though
-# TODO: figure that out
+# TODO: should we include degrees of freedom and # of observations?
 
 chisq_convert <- function(test_obj) {
   if (test_obj$p.value < .001) {
@@ -30,8 +30,16 @@ chisq_convert <- function(test_obj) {
         test_obj$statistic.text, ", p ", test_obj$p.value.text, ".\n", sep="")
 
   } else if (test_obj$method[1] == "Chi-squared test for given probabilities") {
-    cat("A chi-square test of goodness-of-fit was performed.\n")
-    cat("[TODO: fill in this section]")
+
+    # is the distribution uniform?
+    if (var(test_obj$expected) == 0) {
+      is_uniform = "uniformly"
+    } else is_uniform = "according to a custom distribution"
+
+    cat("A chi-square test of goodness-of-fit was performed to determine if the elements of ",
+        vars, " were distributed ", is_uniform, ".\n", sep="")
+    # TODO:
+    cat("[TODO: fill in this section]\n")
   }
 
 }
