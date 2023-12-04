@@ -9,11 +9,24 @@
 #alt: run ttest in the function (so parameters are just the relevant data bits), and then use results for output
 
 statconvert <- function(test_obj){
-  if(class(test_obj) == "htest"){
+  ttest_method = c("Welch Two Sample t-test", "One Sample t-test", "Paired t-test", " Two Sample t-test")
+  cortest_method = c("Pearson's product-moment correlation","Spearman's rank correlation rho",
+                     "Kendall's rank correlation tau")
+
+
+  if(class(test_obj) == "htest" & test_obj$method[1] %in% ttest_method){
     ttest_convert(test_obj)
+  }
+
+  if(class(test_obj) == "htest" & test_obj$method[1] %in% cortest_method) {
+    cor_convert(test_obj)
   }
 }
 
 
-test1 <- t.test(1:10, y = 1:10)
+data("mtcars")
+cor1 <- cor.test(mtcars$mpg, mtcars$qsec)
+test1 <- t.test(mtcars$mpg, mtcars$hp)
+
 statconvert(test1)
+statconvert(cor1)
