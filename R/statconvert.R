@@ -55,5 +55,7 @@ chi4 <- chisq.test(mtcars$cyl, p=seq(1,length(mtcars$cyl)), rescale.p=TRUE)
 statconvert(chi1)
 statconvert(chi2)
 statconvert(chi3)
+statconvert(chi4)
+
 
 
