@@ -10,12 +10,6 @@
 chisq_convert <- function(test_obj) {
   if (test_obj$p.value < .001) {
     test_obj$p.value.text <- "< .001"
-  } else if (test_obj$p.value < .005) {
-    test_obj$p.value.text <- "< .005"
-  } else if (test_obj$p.value < .01) {
-    test_obj$p.value.text <- "< .01"
-  } else if (test_obj$p.value < .05) {
-    test_obj$p.value.text <- "< .05"
   } else {
     test_obj$p.value.text <- paste("=", round(test_obj$p.value, 3))
   }
