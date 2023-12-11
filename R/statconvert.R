@@ -21,7 +21,7 @@ statconvert <- function(test_obj){
   if(class(test_obj) == "htest" & test_obj$method[1] %in% cortest_method) {
     cor_convert(test_obj)
   }
-  if(class(test_obj) == "anova"){
+  if(class(test_obj)[1] == "aov" | class(test_obj)[1] == "anova"){
     oneway_anova_convert(test_obj)
   }
 
@@ -45,7 +45,7 @@ test1 <- t.test(mtcars$mpg, mtcars$hp)
 
 statconvert(test1)
 statconvert(cor1)
-
+library(dplyr)
 data("starwars")
 chi1 <- chisq.test(starwars$species, starwars$homeworld)
 chi2 <- chisq.test(starwars$skin_color, starwars$hair_color)
@@ -57,5 +57,10 @@ statconvert(chi2)
 statconvert(chi3)
 statconvert(chi4)
 
-
-
+aov1 <- aov(mpg ~ wt, data = mtcars)
+statconvert(aov1)
+aov1$method
+class(aov1)
+# error tests
+length(test_obj$method) > 0
+is.null(aov1$method)
