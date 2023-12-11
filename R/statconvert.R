@@ -46,7 +46,7 @@ test1 <- t.test(mtcars$mpg, mtcars$hp)
 statconvert(test1)
 statconvert(cor1)
 
-data("starwars")
+data("starwars", package = 'dplyr')
 chi1 <- chisq.test(starwars$species, starwars$homeworld)
 chi2 <- chisq.test(starwars$skin_color, starwars$hair_color)
 chi3 <- chisq.test(mtcars$cyl, p=rep(1,length(mtcars$cyl)), rescale.p=TRUE)
