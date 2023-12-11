@@ -14,15 +14,18 @@ statconvert <- function(test_obj){
                      "Kendall's rank correlation tau")
   chisq_method = c("Pearson's Chi-squared test", "Chi-squared test for given probabilities")
 
+  if(class(test_obj)[1] == "aov" | class(test_obj)[1] == "anova"){
+    oneway_anova_convert(test_obj)
+    return(NULL)
+  }
   if(class(test_obj) == "htest" & test_obj$method[1] %in% ttest_method){
     ttest_convert(test_obj)
+    return(NULL)
   }
 
   if(class(test_obj) == "htest" & test_obj$method[1] %in% cortest_method) {
     cor_convert(test_obj)
-  }
-  if(class(test_obj) == "anova"){
-    oneway_anova_convert(test_obj)
+    return(NULL)
   }
 
   # as far as I can tell here are the two options for the method of
@@ -33,6 +36,7 @@ statconvert <- function(test_obj){
   if (class(test_obj) == "htest" & test_obj$method[1] %in% chisq_method |
       grepl("Pearson's Chi-squared test", test_obj$method[1], fixed=TRUE)) {
     chisq_convert(test_obj)
+    return(NULL)
   }
 
 }
@@ -42,8 +46,13 @@ statconvert <- function(test_obj){
 data("mtcars")
 cor1 <- cor.test(mtcars$mpg, mtcars$qsec)
 test1 <- t.test(mtcars$mpg, mtcars$hp)
+test2 <- t.test(mtcars$mpg, mtcars$qsec)
+
+
 
 statconvert(test1)
+statconvert(test2)
+statconvert(test3)
 statconvert(cor1)
 
 data("starwars", package = 'dplyr')
@@ -57,5 +66,9 @@ statconvert(chi2)
 statconvert(chi3)
 statconvert(chi4)
 
+aov1 <- aov(mpg ~ wt, data = mtcars)
+statconvert(aov1)
 
-
+# error tests
+length(test_obj$method) > 0
+is.null(aov1$method)
