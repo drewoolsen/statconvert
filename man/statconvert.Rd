@@ -19,12 +19,11 @@ Converts common statistical test outputs into a text APA format
 Tests covered are oneway ANOVA tests, T tests, Correlation tests, Chi-Square tests, and Logistic Regression tests.
 }
 \examples{
-\dontrun{
-if(interactive()){
+
  #EXAMPLE
  data(mtcars)
  md <- aov(mpg ~ wt, data = mtcars)
  statconvert(md)
- }
-}
+
+
 }
