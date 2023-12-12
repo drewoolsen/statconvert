@@ -39,6 +39,12 @@ statconvert <- function(test_obj){
     return(invisible(NULL))
   }
 
+  if (class(test_obj) == "glm" & test_obj[["family"]][["link"]] == "logit") {
+    logistic_convert(test_obj)
+    return(invisible(NULL))
+  }
+
+
 }
 
 # tests
