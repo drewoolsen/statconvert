@@ -1,12 +1,19 @@
-#goal: take statistical test output and translate into english
-#tests: anova (one way), ttest, corr, chisq
-
-# Reporting a significant single sample t-test (μ ≠ μ0):
-# Students taking statistics courses in psychology at the University of Washington reported studying more hours
-# for tests (M = MEAN, SD = STANDARD DEV) than did UW college students in in general, t(DF) = T VAL, p = P VAL.
-
-#no way to get sd from ttest object, may need to require that as well as ttest object
-#alt: run ttest in the function (so parameters are just the relevant data bits), and then use results for output
+#' @title statconvert
+#' @description Converts Common Statistical Test Outputs into APA Format
+#' @param test_obj An object create by a statistical test function like aov() or t.test()
+#' @return A string of the output results converted into APA format
+#' @details Tests covered are oneway ANOVA tests, T tests, Correlation tests, Chi-Square tests, and Logisitic Regression tests.
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE
+#'  data(mtcars)
+#'  md <- aov(mpg ~ wt, data = mtcars)
+#'  statconvert(md)
+#'  }
+#' }
+#' @rdname statconvert
+#' @export
 
 statconvert <- function(test_obj){
   ttest_method = c("Welch Two Sample t-test", "One Sample t-test", "Paired t-test", " Two Sample t-test")
