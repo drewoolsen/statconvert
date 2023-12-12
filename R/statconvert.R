@@ -16,16 +16,16 @@ statconvert <- function(test_obj){
 
   if(class(test_obj)[1] == "aov" | class(test_obj)[1] == "anova"){
     oneway_anova_convert(test_obj)
-    return(NULL)
+    return(invisible(NULL))
   }
   if(class(test_obj) == "htest" & test_obj$method[1] %in% ttest_method){
     ttest_convert(test_obj)
-    return(NULL)
+    return(invisible(NULL))
   }
 
   if(class(test_obj) == "htest" & test_obj$method[1] %in% cortest_method) {
     cor_convert(test_obj)
-    return(NULL)
+    return(invisible(NULL))
   }
 
   # as far as I can tell here are the two options for the method of
