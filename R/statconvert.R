@@ -36,7 +36,7 @@ statconvert <- function(test_obj){
   if (class(test_obj) == "htest" & test_obj$method[1] %in% chisq_method |
       grepl("Pearson's Chi-squared test", test_obj$method[1], fixed=TRUE)) {
     chisq_convert(test_obj)
-    return(NULL)
+    return(invisible(NULL))
   }
 
 }
@@ -52,7 +52,6 @@ test2 <- t.test(mtcars$mpg, mtcars$qsec)
 
 statconvert(test1)
 statconvert(test2)
-statconvert(test3)
 statconvert(cor1)
 
 data("starwars", package = 'dplyr')
