@@ -1,6 +1,6 @@
 Package: statconvert
 Title: Converts Common Statistical Test Outputs into APA Format
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: c(
     person("Drew", "Olsen", , "doolsen@wesleyan.edu", role = c("aut", "cre")),
     person("Johnny", "Wilkens", , "jwilkens@wesleyan.edu", role = c("aut")),
