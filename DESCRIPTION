@@ -3,8 +3,8 @@ Title: Converts Common Statistical Test Outputs into APA Format
 Version: 0.0.0.9000
 Authors@R: c(
     person("Drew", "Olsen", , "doolsen@wesleyan.edu", role = c("aut", "cre")),
-    person("Johnny" "Wilkens", , "jwilkens@wesleyan.edu", role = c("aut", "cre")),
-    person("Nathan","Hausspiegel", , "nhausspiegel@wesleyan.edu", role = c("aut", "cre")))
+    person("Johnny", "Wilkens", , "jwilkens@wesleyan.edu", role = c("aut")),
+    person("Nathan","Hausspiegel", , "nhausspiegel@wesleyan.edu", role = c("aut")))
 Description: This package takes the output objects of common statistical tests 
   and converts them into jounral ready text strings according to the standards 
   layed out in APA formating guide. Functions covered include oneway ANOVA, 
