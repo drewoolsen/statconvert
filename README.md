@@ -5,7 +5,7 @@
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-statconvert is a helpful function to translate statistical test outputs into a copy paste-able string. 
+statconvert is a helpful function to translate statistical test outputs into a copy paste-able strings. 
 
 ## Installation
 
@@ -17,7 +17,7 @@ remotes::install_github("drewoolsen/statconvert")
 
 ## Example
 
-If you wanted to translate the output of a anova test into text you could do 
+If you wanted to translate the output of a oneway ANOVA test into text you could do 
 ``` r
 library(statconvert)
 data(mtcars)
