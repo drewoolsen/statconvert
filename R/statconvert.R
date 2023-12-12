@@ -35,11 +35,6 @@ statconvert <- function(test_obj){
     return(invisible(NULL))
   }
 
-  # as far as I can tell here are the two options for the method of
-  # a chi-squared test of independence:
-  # "Pearson's Chi-squared test"
-  # "Pearson's Chi-squared test with simulated p-value ..."
-  # so we just check if the first string is a substring of method
   if (class(test_obj) == "htest" & test_obj$method[1] %in% chisq_method |
       grepl("Pearson's Chi-squared test", test_obj$method[1], fixed=TRUE)) {
     chisq_convert(test_obj)
@@ -207,7 +202,6 @@ chisq_convert <- function(test_obj) {
   } else if (test_obj$method[1] == "Chi-squared test for given probabilities") {
     is_distributed <- ifelse(signif, "not ", "")
 
-    # is the distribution uniform?
     if (var(test_obj$expected) == 0) is_uniform = "uniformly"
     else is_uniform = "according to the distribution provided"
 
@@ -234,7 +228,6 @@ logistic_convert <- function(test_obj) {
 
   percent <- round((1-odds_ratios)*100, 3)
   changed <- ifelse(percent > 0, "increased", "decreased")
-  # e.344 +/- 1.96*.156
 
 
   cat("Logistic regression was used to analyze the relationship between ")

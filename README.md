@@ -9,7 +9,7 @@ statconvert is a helpful function to translate statistical test outputs into a c
 
 ## Installation
 
-You can install the development version of statconvert with:
+You can install the currnt version of statconvert with:
 
 ``` r
 remotes::install_github("drewoolsen/statconvert")
