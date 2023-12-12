@@ -2,3 +2,6 @@
 .Rhistory
 .gitignore
 tests.R
+inst/doc
+/doc/
+/Meta/

@@ -1,0 +1,35 @@
+---
+title: "statconvert"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{statconvert}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(statconvert)
+```
+
+# Introduction
+
+statconvert is a helpful formatting package that allows the user to easily convert the output of their statistical test into a copy paste-able string. Converting the tabular output of a statistical function into your academic article can often be tedious task and this package streamlines it considerably. Test results are reported according to the APA's standards
+
+# statconvert
+
+This package contains only one namesake function. statconvert is a series of if statements checking the class of the object given to it. Once the function determines which which type of test object it has received, it then calls a specific helper function designed to handle that test and returns a string that you can just copy paste into your word processor.
+
+For example if you wanted to convert the output of a oneway ANOVA test you could use the statconvert function like this
+
+```{r}
+data(mtcars)
+md <- aov(mpg ~ wt, data = mtcars)
+statconvert(md)
+```
