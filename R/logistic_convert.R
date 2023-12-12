@@ -39,10 +39,3 @@ logistic_convert <- function(test_obj) {
   }
 
 }
-
-breast_cancer <- read.csv("/Users/nathanhausspiegel/Downloads/breastcancer.csv")
-breast_cancer$Class <- factor(breast_cancer$Class)
-b <- glm(formula=Class~., family=binomial(), data=breast_cancer)
-b
-summary(b)
-logistic_convert(b)
