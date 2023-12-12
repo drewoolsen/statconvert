@@ -1,6 +1,6 @@
 #' @title statconvert
-#' @description Converts common statistical test outputs into APA format
-#' @param test_obj An object create by a statistical test function like aov() or t.test()
+#' @description Converts common statistical test outputs into a text APA format
+#' @param test_obj An object created by a statistical test function like aov() or t.test()
 #' @return A string of the output results converted into APA format
 #' @details Tests covered are oneway ANOVA tests, T tests, Correlation tests, Chi-Square tests, and Logistic Regression tests.
 #' @examples
